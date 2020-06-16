@@ -1,7 +1,7 @@
 # Flow Academy - Basics of Webtechnologies - Sitebuilding
 
 Sitebuilding–oktató: 
-László Bálint\n
+László Bálint
 ➢ június24(szerda) 17.00 –20.00
 ➢ június27(szombat) 11.00 –20.00
 ➢ július01(szerda) 17.00 –20.00 
