@@ -1,0 +1,48 @@
+/* Main Axis and Cross Axis */
+
+.flexbox-container {
+  display: flex;
+  flex-wrap: nowrap; /* Try the rest options -> Wrapping element on windows resize. */
+  justify-content: space-between; /* Try the rest options -> Align along the main axis. */
+  align-items: stretch; /* Try the rest options -> Align along the cross axis. */
+  align-content: center; /* Works only if wrapping is enabled. */
+  /* flex-flow: wrap column; Shortcut for combining flex-wrap and flex-direction. */
+  flex-direction: row; /* Row is default. If you change to column, the main axis will be vertical! */
+  height: 95vh;
+}
+
+.flexbox-item {
+  width: 15%;
+  background-color: #ff652f;
+  border: 3px solid #272727;
+  color: #fff;
+  font-size: 2em;
+  padding: 20px;
+  margin: 10px;
+  /* This is how you place, align and justify content in an element. Very important!*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.item-1 {
+  min-height: 50px;
+  flex-grow: 1; /* Usage with numbers, and scales the size of the element on the main axis. */
+  flex-shrink: 2; /* Sets shrinking of an element to its neighbor elements on windows resize. */
+  flex-basis: 15%; /* Sets how much space to take on the start. */
+  /* flex: 1 2 15; Shortcut for flex-grow, flex-shrink and flex-basis properties. */
+  /* order: 2;  Changes the ranking, ordering of elements but not in the HTML -> Screen reader's issue. */
+}
+
+.item-2 {
+  min-height: 100px;
+  flex-grow: 4;
+  align-self: flex-start; /* Aligning self in the container to start, center or end, individually. */
+  /* order: 1; */
+}
+
+.item-3 {
+  min-height: 250px;
+  flex-grow: 1;
+  /* order: 3; */
+}
