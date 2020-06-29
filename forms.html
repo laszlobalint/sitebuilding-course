@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Forms</title>
+  </head>
+  <body>
+    <form action="#" method="post" name="form" enctype="application/x-www-form-urlencoded">
+      <div><label for="name">Name </label><input type="text" name="name" placeholder="Type your name..." required /></div>
+      <div><label for="phone">Phone </label><input type="tel" name="phone" placeholder="Type your phone..." required /></div>
+      <div><label for="email">Email </label><input type="email" name="email" placeholder="Type your email..." required /></div>
+      <div>
+        <fieldset>
+          <legend>Which taxi do you require?</legend>
+          <label for="taxi"><input type="radio" name="taxi" value="car" />Car</label>
+          <label for="taxi"><input type="radio" name="taxi" value="van" />Van</label>
+          <label for="taxi"><input type="radio" name="taxi" value="tuk-tuk" />Tuk Tuk</label>
+        </fieldset>
+      </div>
+      <div>
+        <fieldset>
+          <legend>Extras</legend>
+          <label for="extras"><input type="checkbox" name="extras" value="baby-seat" />Baby Seat</label>
+          <label for="extras"><input type="checkbox" name="extras" value="wheelchair" />Wheelchair Access</label>
+          <label for="extras"><input type="checkbox" name="extras" value="stock-tip" />Stock Tip</label>
+        </fieldset>
+      </div>
+      <div><label for="pickup-time">Pickup Date/Time </label><input type="datetime-local" name="pickup-time" required /></div>
+      <div>
+        <label for="pickup-place">Pickup Place </label
+        ><select name="pickup-place">
+          <option value="" selected disabled>Select One</option>
+          <option value="main-square">Main Square</option>
+          <option value="home">At Home</option>
+          <option value="disco">Disco</option>
+        </select>
+      </div>
+      <div>
+        <label for="dropoff">Dropoff Place </label><input type="text" name="dropoff" list="destinations" required />
+        <datalist id="destinations">
+          <option value="Airport"></option>
+          <option value="Beach"></option>
+          <option value="Bar"></option>
+        </datalist>
+      </div>
+      <div>
+        <textarea name="special" cols="30" rows="10" maxlength="500"></textarea>
+      </div>
+      <div>
+        <input type="reset" value="Clear Form" />
+      </div>
+      <div>
+        <input id="submit" type="submit" value="Submit Booking" onclick="alert('Forms sent!')" />
+      </div>
+    </form>
+
+    <script>
+      function disableField() {
+        const invalidForm = document.querySelector('form:invalid');
+        const submitBtn = document.getElementById('submit');
+        if (invalidForm) {
+          submitBtn.setAttribute('disabled', true);
+        } else {
+          submitBtn.disabled = false;
+        }
+      }
+      disableField();
+      const inputs = document.getElementsByTagName('input');
+      for (let input of inputs) {
+        input.addEventListener('change', disableField);
+      }
+    </script>
+  </body>
+</html>
