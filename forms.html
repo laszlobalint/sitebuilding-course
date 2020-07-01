@@ -4,6 +4,12 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Forms</title>
+    <link rel="stylesheet" href="./styles/global.css" />
+    <style>
+      #sample {
+        color: green;
+      }
+    </style>
   </head>
   <body>
     <form action="#" method="post" name="form" enctype="application/x-www-form-urlencoded">
@@ -26,7 +32,9 @@
           <label for="extras"><input type="checkbox" name="extras" value="stock-tip" />Stock Tip</label>
         </fieldset>
       </div>
-      <div><label for="pickup-time">Pickup Date/Time </label><input type="datetime-local" name="pickup-time" required /></div>
+      <div>
+        <label style="opacity: 0.5;" for="pickup-time">Pickup Date/Time </label><input type="datetime-local" name="pickup-time" required />
+      </div>
       <div>
         <label for="pickup-place">Pickup Place </label
         ><select name="pickup-place">
@@ -54,7 +62,6 @@
         <input id="submit" type="submit" value="Submit Booking" onclick="alert('Forms sent!')" />
       </div>
     </form>
-
     <script>
       function disableField() {
         const invalidForm = document.querySelector('form:invalid');

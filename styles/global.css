@@ -1,0 +1,57 @@
+/* 
+Styling for heading1 and paragraphs 
+*/
+
+footer {
+  background-color: pink !important;
+  color: red;
+}
+
+.sample-button {
+  width: 300px;
+  padding: 0.8em;
+  border: 2px dotted royalblue;
+  border-radius: 9999px;
+  margin: 0.4em;
+}
+
+#parent-div {
+  font-size: 2em;
+}
+
+#sample-text {
+  font-size: 2rem;
+}
+
+#box {
+  width: 200px;
+  height: 200px;
+  background: #ca28ca;
+  position: relative;
+  /* Chrome, Safari, Opera */
+  -webkit-animation-name: move--it;
+  -webkit-animation-duration: 4s;
+  /* Standard syntax */
+  animation-name: move--it;
+  animation-duration: 4s;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes move--it {
+  from {
+    left: 0;
+  }
+  to {
+    left: 100%;
+  }
+}
+
+/* Standard syntax */
+@keyframes move--it {
+  from {
+    left: 0;
+  }
+  to {
+    left: 100%;
+  }
+}
