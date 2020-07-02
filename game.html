@@ -13,22 +13,31 @@
       const PADDLE_WIDTH = 100;
       const PADDLE_THICKNESS = 10;
       const PADDLE_DIST_FROM_EDGE = 60;
-
+      const BRICK_W = 100;
+      const BRICK_H = 50;
+      const BRICK_COUNT = 8;
+      var brickGrid = new Array(BRICK_COUNT);
       var paddleX = 400;
       var ballX = 75;
       var ballY = 75;
       var ballSpeedX = 5;
       var ballSpeedY = 7;
+      var mouseX = 0;
+      var mouseY = 0;
       var canvas, canvasContext;
 
       function updateMousePosition(evt) {
         var rect = canvas.getBoundingClientRect();
         var root = document.documentElement;
 
-        var mouseX = evt.clientX - rect.left - root.scrollLeft;
-        // var mouseY = evt.clientY - rect.top - root.scrollTop;
+        mouseX = evt.clientX - rect.left - root.scrollLeft;
+        mouseY = evt.clientY - rect.top - root.scrollTop;
 
         paddleX = mouseX - PADDLE_WIDTH / 2;
+      }
+
+      function brickReset() {
+        for (let i = 0; i < BRICK_COUNT; i++) Math.random() < 0.5 ? (brickGrid[i] = true) : (brickGrid[i] = false);
       }
 
       window.onload = function () {
@@ -39,6 +48,8 @@
         setInterval(updateAll, 1000 / framesPerSecond);
 
         canvas.addEventListener('mousemove', updateMousePosition);
+
+        brickReset();
       };
 
       function updateAll() {
@@ -78,6 +89,10 @@
         colorCircle(ballX, ballY, 10, 'white');
         // Draw paddle
         colorRect(paddleX, canvas.height - PADDLE_DIST_FROM_EDGE, PADDLE_WIDTH, PADDLE_THICKNESS, 'white');
+        // Write text by mouse
+        colorText(`${mouseX}, ${mouseY}`, mouseX, mouseY, 'yellow');
+        // Draw bricks
+        drawBricks();
       }
 
       function colorRect(topLeftX, topLeftY, boxWidth, boxHeight, fillColor) {
@@ -90,6 +105,17 @@
         canvasContext.beginPath();
         canvasContext.arc(centerX, centerY, radius, 0, Math.PI * 2, true);
         canvasContext.fill();
+      }
+
+      function colorText(showWords, textX, textY, fillColor) {
+        canvasContext.fillStyle = fillColor;
+        canvasContext.fillText(showWords, textX, textY);
+      }
+
+      function drawBricks() {
+        brickGrid.forEach((v, i) => {
+          if (v) colorRect(BRICK_W * i, 0, BRICK_W - 2, BRICK_H, 'blue');
+        });
       }
     </script>
   </body>
