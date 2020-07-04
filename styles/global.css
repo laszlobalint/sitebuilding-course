@@ -3,6 +3,9 @@ Styling for heading1 and paragraphs
 */
 
 footer {
+  position: relative;
+  clear: both;
+  top: 100%;
   background-color: pink !important;
   color: red;
 }
@@ -13,6 +16,10 @@ footer {
   border: 2px dotted royalblue;
   border-radius: 9999px;
   margin: 0.4em;
+}
+
+.cat-img {
+  float: left;
 }
 
 #parent-div {
