@@ -9,7 +9,7 @@ const io = socketio(expressServer);
 
 io.on('connection', (socket) => {
   socket.emit('messageFromServer', { data: 'Welcome to the Socket.IO Server!' });
-  socket.on('messageToServer', (dataFromClient) => {
-    console.log('Data from client', dataFromClient);
+  socket.on('newMessageToServer', (newMessage) => {
+    io.emit('messageToClients', { text: newMessage.text });
   });
 });

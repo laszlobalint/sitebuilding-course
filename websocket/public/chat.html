@@ -3,16 +3,66 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Chate</title>
+    <title>Chat</title>
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+      integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
+      crossorigin="anonymous"
+    />
+    <style>
+      body {
+        margin: 10%;
+      }
+      h1 {
+        display: flex;
+        justify-content: center;
+      }
+      input {
+        width: 100%;
+        height: 3rem;
+      }
+      #messagess {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+      #messages li {
+        padding: 0.5em 1em;
+      }
+      #messages li:nth-child(odd) {
+        color: rgb(138, 134, 134);
+      }
+    </style>
   </head>
   <body>
     <h1>Chat room</h1>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-12">
+          <form id="message-form" action="#" method="post">
+            <div class="col-sm-10">
+              <input type="text" name="user-message" id="user-message" placeholder="Enter your message..." />
+            </div>
+            <div class="col-sm-2">
+              <input class="btn btn-primary" type="submit" value="Send" />
+            </div>
+          </form>
+          <ul id="messages"></ul>
+        </div>
+      </div>
+    </div>
+
     <script src="/socket.io/socket.io.js"></script>
     <script>
       const socket = io('http://localhost:9000');
-      socket.on('messageFromServer', (dataFromServer) => {
-        console.log('Data from server', dataFromServer);
-        socket.emit('messageToServer', { data: 'Data from the Client side!' });
+      document.querySelector('#message-form').addEventListener('submit', (event) => {
+        event.preventDefault();
+        const newMessage = document.querySelector('#user-message').value;
+        socket.emit('newMessageToServer', { text: newMessage });
+      });
+      socket.on('messageToClients', (message) => {
+        document.querySelector('#messages').innerHTML += `<li>${message.text}</li>`;
       });
     </script>
   </body>
