@@ -13,7 +13,7 @@ io.on('connection', (socket) => {
     console.log(newMessage);
   });
   socket.join('tempRoom');
-  io.to('tempRoom').emit('joined', `${socket.id} says: You have joined the TempRoom!`);
+  io.to('tempRoom').emit('joined', `${socket.id} says: You have joined the TempRoom0!`);
 });
 
 io.of('/admin').on('connection', (socket) => {
