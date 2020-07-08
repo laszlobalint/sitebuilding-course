@@ -2,12 +2,12 @@
 
 .flexbox-container {
   display: flex;
+  flex-direction: row; /* Row is default. If you change to column, the main axis will be vertical! */
   flex-wrap: nowrap; /* Try the rest options -> Wrapping element on windows resize. */
   justify-content: space-between; /* Try the rest options -> Align along the main axis. */
   align-items: stretch; /* Try the rest options -> Align along the cross axis. */
   align-content: center; /* Works only if wrapping is enabled. */
   /* flex-flow: wrap column; Shortcut for combining flex-wrap and flex-direction. */
-  flex-direction: row; /* Row is default. If you change to column, the main axis will be vertical! */
   height: 95vh;
 }
 

@@ -2,6 +2,26 @@
 Styling for heading1 and paragraphs 
 */
 
+a {
+  text-decoration: none;
+}
+
+a:link {
+  color: black;
+}
+
+a:visited {
+  color: green;
+}
+
+a:hover {
+  font-size: 1.5em;
+}
+
+a:active {
+  text-transform: uppercase;
+}
+
 footer {
   position: relative;
   clear: both;

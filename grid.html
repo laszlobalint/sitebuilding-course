@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid Basic Start Layout</title>
+    <style>
+      .grid-container {
+        display: grid;
+        height: 100vh;
+        grid-template-columns: 1fr 2fr 1fr;
+        grid-template-rows: repeat(2, 1fr);
+      }
+      .item {
+        width: 100%;
+      }
+      .item-header {
+        background: blueviolet;
+        grid-column: 2 / 4;
+        grid-row: 1 / 2;
+      }
+      .item-navbar {
+        background: yellow;
+        grid-column: 1 / 2;
+        grid-row: 1 / 3;
+      }
+      .item-main {
+        background: red;
+        grid-column: 2 / 4;
+        grid-row: 2 / 3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="grid-container">
+      <div class="item-header item">HEADER</div>
+      <div class="item-navbar item">NAVBAR</div>
+      <div class="item-main item">MAIN</div>
+    </div>
+  </body>
+</html>

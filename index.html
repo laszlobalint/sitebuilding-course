@@ -5,7 +5,62 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Flow Academy - Sitebuilding</title>
   </head>
+  <style>
+    * {
+      font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+      font-size: 20px;
+    }
+    body {
+      height: 200vh;
+      margin: 10%;
+      background-image: linear-gradient(to right, grey, white);
+      box-shadow: 0 10px 10px 5px grey;
+    }
+    img {
+      padding: 1em;
+      float: right;
+    }
+    p {
+      padding: 2em;
+    }
+    footer {
+      background: linear-gradient(to left, grey, white);
+      clear: both;
+      margin: 0 auto;
+      text-align: center;
+    }
+    span {
+      position: -webkit-sticky; /* Safari */
+      position: sticky;
+      top: 0;
+    }
+    @media (min-width: 768px) {
+      * {
+        font-size: 0.8rem;
+      }
+    }
+    @media (min-width: 992px) {
+      * {
+        font-size: 1rem;
+      }
+    }
+    @media (min-width: 1200px) {
+      * {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
   <body>
-    <img src="https://source.unsplash.com/random/400x700" alt="" />
+    <div class="container">
+      <img src="https://source.unsplash.com/random/200x200" alt="Image" />
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Consequatur, asperiores laboriosam eaque quos provident aliquam alias
+        voluptatibus impedit minima corporis, ipsa distinctio laudantium, voluptates quaerat quis optio magnam ipsum aut. Lorem ipsum dolor
+        sit amet consectetur adipisicing elit. Sapiente tempore dolores harum repellendus. Quo id exercitationem aliquid corrupti! Odit
+        numquam eos cupiditate aut et quas autem reprehenderit dolor, recusandae blanditiis!
+      </p>
+    </div>
+    <span>Stickyyyyyyyy!</span>
+    <footer>Footer</footer>
   </body>
 </html>

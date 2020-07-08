@@ -6,8 +6,9 @@
     <title>Forms</title>
     <link rel="stylesheet" href="./styles/global.css" />
     <style>
-      #sample {
-        color: green;
+      @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,200&display=swap');
+      * {
+        font-family: 'Poppins', sans-serif;
       }
     </style>
   </head>
@@ -59,7 +60,7 @@
         <input type="reset" value="Clear Form" />
       </div>
       <div>
-        <input id="submit" type="submit" value="Submit Booking" onclick="alert('Forms sent!')" />
+        <input type="submit" value="Submit Booking" onclick="alert('Forms sent!')" />
       </div>
     </form>
     <script>
