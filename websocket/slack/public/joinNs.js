@@ -1,4 +1,9 @@
 function joinNs(endpoint) {
+  if (nsSocket) {
+    nsSocket.close();
+    document.querySelector('#user-input').removeEventListener('submit', formSubmission);
+  }
+
   nsSocket = io(`http://localhost:9000${endpoint}`);
 
   nsSocket.on('nsRoomLoad', (nsRooms) => {
@@ -9,27 +14,26 @@ function joinNs(endpoint) {
       let glyph;
       room.isPrivateRoom ? (glyph = 'lock') : (glyph = 'globe');
       roomList.innerHTML += `<li class="room"><span class="glyphicon glyphicon-${glyph}"></span>${room.title}</li>`;
-
-      const topRoom = document.querySelector('.room');
-      joinRoom(topRoom.innerText);
     });
 
     Array.from(document.getElementsByClassName('room')).forEach((e) => {
       e.addEventListener('click', (event) => {
-        console.log(event.target.innerText);
+        joinRoom(event.target.innerText);
       });
     });
   });
 
-  document.querySelector('.message-form').addEventListener('submit', (event) => {
-    event.preventDefault();
-    const newMessage = document.querySelector('#user-message').value;
-    nsSocket.emit('messageToServer', { text: newMessage });
-  });
+  document.querySelector('.message-form').addEventListener('submit', formSubmission);
 
   nsSocket.on('messageToClients', (message) => {
     document.querySelector('#messages').innerHTML += buildListHtml(message);
   });
+
+  function formSubmission(event) {
+    event.preventDefault();
+    const newMessage = document.querySelector('#user-message').value;
+    nsSocket.emit('messageToServer', { text: newMessage });
+  }
 }
 
 function buildListHtml(msg) {

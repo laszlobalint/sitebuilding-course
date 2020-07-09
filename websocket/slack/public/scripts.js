@@ -7,10 +7,11 @@ socket.on('nsList', (nsData) => {
   nsData.forEach((ns) => {
     namespacesDiv.innerHTML += `<div class="namespace" ns=${ns.endpoint}><img src="${ns.image}" /></div>`;
   });
+
   Array.from(document.getElementsByClassName('namespace')).forEach((e) => {
     e.addEventListener('click', (event) => {
       const nsEndpoint = e.getAttribute('ns');
+      joinNs(nsEndpoint);
     });
   });
-  joinNs('/wiki');
 });
