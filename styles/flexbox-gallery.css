@@ -4,12 +4,6 @@
 
 body {
   margin: 0;
-  font-family: "Courier New", Courier, monospace;
-}
-
-.header {
-  text-align: center;
-  padding: 25px;
 }
 
 .row {
@@ -26,6 +20,8 @@ body {
   width: 100%;
   vertical-align: middle;
 }
+
+/* Large screen: 3 columns - Medium screen: 2 columns; Small screen: 1 column */
 
 @media (max-width: 800px) {
   .column {
