@@ -20,7 +20,7 @@ namespaces.forEach((ns) => {
   io.of(ns.endpoint).on('connection', (nsSocket) => {
     nsSocket.emit('nsRoomLoad', ns.rooms);
 
-    nsSocket.on('joinRoom', (roomToJoin, numberOfUsersCallback) => {
+    nsSocket.on('joinRoom', (roomToJoin) => {
       const roomToLeave = Object.keys(nsSocket.rooms)[1];
       nsSocket.leave(roomToLeave);
       updateUsersInRoom(ns, roomToLeave);
