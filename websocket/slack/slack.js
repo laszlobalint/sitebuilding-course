@@ -38,8 +38,8 @@ namespaces.forEach((ns) => {
       const fullMsg = {
         text: msg.text,
         time: new Date().toLocaleString(),
-        username: 'laboabt',
-        avatar: 'https://via.placeholder.com/30',
+        username: nsSocket.handshake.query.username,
+        avatar: nsSocket.handshake.query.avatar,
       };
       const roomTitle = Object.keys(nsSocket.rooms)[1];
       const nsRoom = ns.rooms.find((room) => {

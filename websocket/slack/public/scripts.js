@@ -1,4 +1,10 @@
-const socket = io('http://localhost:9000');
+const username = prompt('What is your username?');
+const socket = io('http://localhost:9000', {
+  query: {
+    username,
+    avatar: 'https://source.unsplash.com/random/30x30',
+  },
+});
 let nsSocket = '';
 
 socket.on('nsList', (nsData) => {
