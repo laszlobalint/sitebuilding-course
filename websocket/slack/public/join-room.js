@@ -5,8 +5,7 @@ function joinRoom(roomName) {
     const messagesUL = document.querySelector('#messages');
     messagesUL.innerHTML = '';
     history.forEach((msg) => {
-      const currentMessages = messagesUL.innerHTML;
-      messagesUL.innerHTML = currentMessages + buildListHtml(msg);
+      messagesUL.innerHTML += buildListHtml(msg);
     });
     messagesUL.scroll(0, messagesUL.scrollHeight);
   });
@@ -16,9 +15,9 @@ function joinRoom(roomName) {
     document.querySelector('.curr-room-text').innerText = roomName;
   });
 
-  let searchBox = document.querySelector('#search-box');
+  const searchBox = document.querySelector('#search-box');
   searchBox.addEventListener('input', (e) => {
-    let messages = Array.from(document.getElementsByClassName('message-text'));
+    const messages = Array.from(document.getElementsByClassName('message-text'));
     messages.forEach((msg) => {
       msg.innerText.toLowerCase().indexOf(e.target.value.toLowerCase()) === -1
         ? (msg.style.display = 'none')

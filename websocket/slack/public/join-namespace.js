@@ -9,7 +9,6 @@ function joinNs(endpoint) {
   nsSocket.on('nsRoomLoad', (nsRooms) => {
     let roomList = document.querySelector('.room-list');
     roomList.innerHTML = '';
-
     nsRooms.forEach((room) => {
       let glyph;
       room.isPrivateRoom ? (glyph = 'lock') : (glyph = 'globe');
