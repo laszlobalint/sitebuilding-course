@@ -1,8 +1,8 @@
 {
   "name": "websocket",
   "version": "1.0.0",
-  "description": "Websocket - Websocket.IO",
-  "main": "simple-ws-server.js",
+  "description": "Chat application - Socket.IO",
+  "main": "slack.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
