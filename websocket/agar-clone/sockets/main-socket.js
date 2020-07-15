@@ -5,6 +5,7 @@ const Player = require('./classes/Player');
 const Orb = require('./classes/Orb');
 
 let orbs = [];
+let players = [];
 let settings = {
   defaultOrbs: 500,
   defaultSpeed: 6,
@@ -17,11 +18,14 @@ let settings = {
 initGame();
 
 io.sockets.on('connection', (socket) => {
-  let playerConfig = new PlayerConfiguration(settings);
-  let playerData = new PlayerPublicData(null, settings);
-  let player = new Player(socket.id, playerConfig, playerData);
-  socket.emit('init', {
-    orbs,
+  socket.on('init', (data) => {
+    let playerConfig = new PlayerConfiguration(settings);
+    let playerData = new PlayerPublicData(data.playerName, settings);
+    let player = new Player(socket.id, playerConfig, playerData);
+    players.push(playerData);
+    socket.emit('initReturn', {
+      orbs,
+    });
   });
 });
 

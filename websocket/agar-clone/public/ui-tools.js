@@ -1,12 +1,10 @@
-let windowHeight = $(window).height();
-let windowWidth = $(window).width();
 let player = {};
 let orbs = [];
 
 let canvas = document.querySelector('#the-canvas');
 let context = canvas.getContext('2d');
-canvas.height = windowWidth;
-canvas.width = windowWidth;
+canvas.height = $(window).height();
+canvas.width = $(window).width();
 
 $(window).load(() => {
   $('#loginModal').modal('show');
