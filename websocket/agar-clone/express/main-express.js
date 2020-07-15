@@ -1,3 +1,3 @@
-const io = require('../servers').app;
+const app = require('../servers').app;
 
 module.exports = app;
